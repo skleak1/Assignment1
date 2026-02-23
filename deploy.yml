@@ -24,9 +24,6 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no $USER@$HOST << 'EOF'
             set -e
-            cd /var/www/myapp
+            cd /var/www/html
             git pull origin main
-            npm ci --omit=dev
-            npm run build
-            pm2 reload all
           EOF
